@@ -34,13 +34,13 @@ hooks:
         # curl -fsS https://raw.githubusercontent.com/platformsh/snippets/main/src/install_node.sh | { bash /dev/fd/3 -v 17.5 -y; } 3<&0
 
         # uncomment next line to build assets deploying
-        npm install && npm run production   
-        composer dump-autoload     
+       
 
     deploy: |
         set -e
         php artisan optimize:clear
-
+        npm install && npm run production   
+        composer dump-autoload     
         php artisan migrate --force        
 
 # The relationships of the application with services or other applications.
